@@ -6,7 +6,7 @@
 /*   By: motoko <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:03:33 by motoko            #+#    #+#             */
-/*   Updated: 2024/03/06 15:41:15 by motoko           ###   ########.fr       */
+/*   Updated: 2024/03/06 17:12:47 by motoko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,22 @@ class Converter {
 		Converter& operator=(Converter const &src);
 		~Converter();
 
+		void	init(std::string str);
+
+		/* == is what it is == */
+		bool	isChar(void) const;
+
 		/* == Getter == */
 		char	getC() const;
 		int		getN() const;
 		float	getF() const;
 		double	getD() const;
+
+		/* == Setter == */
+		void	setC(char c);
+		void	setN(int n);
+		void	setF(float f);
+		void	setD(double d);
 		
 		/* == Display == */
 		void	printChar(void) const;
@@ -41,11 +52,19 @@ class Converter {
 		void	printFloat(void) const;
 		void	printDouble(void) const;
 
+		class ConverterExecption : public std::exception {
+			virtual const char* what() const throw() { 
+				return "Unknown type"; 
+			}
+		};
+
 	private:
-		char 	_c;
-		int		_n;
-		float	_f;
-		double	_d;
+		char 		_c;
+		int			_n;
+		float		_f;
+		double		_d;
+
+		std::string	_str;
 };
 
 std::ostream& operator<<(std::ostream &o, const Converter &rhs);

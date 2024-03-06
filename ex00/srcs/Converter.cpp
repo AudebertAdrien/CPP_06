@@ -6,7 +6,7 @@
 /*   By: motoko <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:09:12 by motoko            #+#    #+#             */
-/*   Updated: 2024/03/06 15:45:01 by motoko           ###   ########.fr       */
+/*   Updated: 2024/03/06 17:19:30 by motoko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,16 @@ Converter::~Converter() {
 	std::cout << "Converter destructor called" << std::endl;
 }
 
+void	Converter::init(std::string str) {
+	std::cout << str << std::endl;
+	this->_str = str;
+}
+
+/* == is what it is == */
+bool	Converter::isChar(void) const {
+	return (this->_str.length() == 1 && isalpha(this->_str[0]) && isprint(this->_str[0]));	
+}
+
 /* == Getter == */
 char	Converter::getC() const {
 	return (this->_c);
@@ -53,6 +63,23 @@ float	Converter::getF() const {
 
 double	Converter::getD() const {
 	return (this->_d);
+}
+
+/* == Setter == */
+void	Converter::setC(char c) {
+	this->_c = c;
+}
+
+void		Converter::setN(int n) {
+	this->_n = n;
+}
+
+void	Converter::setF(float f) {
+	this->_f = f;
+}
+
+void	Converter::setD(double d) {
+	this->_d = d;
 }
 
 /* == Display == */

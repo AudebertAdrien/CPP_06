@@ -6,7 +6,7 @@
 /*   By: motoko <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:27:16 by motoko            #+#    #+#             */
-/*   Updated: 2024/03/06 14:57:36 by motoko           ###   ########.fr       */
+/*   Updated: 2024/03/06 16:58:09 by motoko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int main(int argc, char **argv) {
 	Converter c;
 
 	try {
-		//c.setStr(argv[1]);
-		//c.convert();
+		
+		c.init(argv[1]);
 
 		std::cout << c << std::endl;
 	} catch (const std::exception &e) {
