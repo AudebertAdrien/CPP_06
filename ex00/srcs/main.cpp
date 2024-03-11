@@ -5,33 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: motoko <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 16:27:16 by motoko            #+#    #+#             */
-/*   Updated: 2024/03/06 16:58:09 by motoko           ###   ########.fr       */
+/*   Created: 2024/03/11 16:01:03 by motoko            #+#    #+#             */
+/*   Updated: 2024/03/11 16:01:22 by motoko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstdlib>
-
 #include "Converter.hpp"
 
-int main(int argc, char **argv) {
+int     main(int argc, char const **argv)
+{
 	if (argc != 2)
 	{
-		std::cout << "error: need one argument!" << std::endl;
-		return EXIT_FAILURE;
+		std::cout << "Invalid number of parameters." << std::endl;
+		std::cout << "Usage: 1 parameter max." << std::endl;
+		return 1;
 	}
 
-	Converter c;
+	Converter	converter;
+	converter.init(std::string(argv[1]));
 
-	try {
-		
-		c.init(argv[1]);
-
-		std::cout << c << std::endl;
-	} catch (const std::exception &e) {
-		std::cerr << "Error: "<< e.what() << std::endl;
-	}
-
-	return (EXIT_SUCCESS);
+	std::cout << "char: " << converter.toChar() << std::endl;
+	std::cout << "int: " << converter.toInt() << std::endl;
+	std::cout << "float: " << converter.toFloat() << std::endl;
+	std::cout << "double: " << converter.toDouble() << std::endl;
+	
+	return 0;
 }
